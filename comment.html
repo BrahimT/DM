@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Parlons nous vivant !</title>
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="warning" id="no_go"></div>
+    <div class="commentbox-app">
+        <div class="container">
+            <h1 class="heading">Parlons nous vivant  !</h1>
+            <h2>Notez bien que tout vos ecris sont enregistrer et vous aurez une reponse dans les 24h.</h2>
+            <div class="clearfix">
+                <form id="comment-form">
+                    <input type="text" id="comment-input" class="comment-input"height=400 placeholder="Parle moi de toi  ...">
+                    <input type="submit" value="Post" class="comment-btn">
+                </form>
+            </div>
+    
+            <ul id="comment-stream" class="comment-stream">
+                <!-- dummy data:       <li>Hey! <span class="comment-remove">&times;</span></li>
+          <li>Just a thought <span href="" class="comment-remove">&times;</span></li> -->
+            </ul>
+            <button class="remove-all-btn" id="remove-all" type="button">Remove all</button>
+        </div>
+    </div>
+
+
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script>
+        $(document).ready(function () {
+
+            $(".btn-box").on('click', function () {
+                $(".comment").addClass("afterText");
+            });
+            $("textarea").on('keyup.enter', function () {
+                $(".comment").addClass("afterText");
+            });
+        });
+
+        new Vue({
+            el: "#wrapper",
+            data: {
+                newItem: '',
+                item: [],
+            },
+            methods: {
+                addItem() {
+                    this.item.push(this.newItem);
+                    this.newItem = "";
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>
